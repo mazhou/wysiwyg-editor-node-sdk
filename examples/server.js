@@ -20,6 +20,7 @@ app.post('/upload_image', function (req, res) {
   FroalaEditor.Image.upload(req, '/uploads/', function(err, data) {
 
     if (err) {
+      console.log("err:",err);
       return res.send(JSON.stringify(err));
     }
     res.send(data);
