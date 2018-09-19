@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery Accordion</title>
+  <script src="/release/wangEditor.js"></script>
+</head>
+<body>
+
+
+<div id="editor">
+  <p>欢迎使用 wangEditor 富文本编辑器</p>
+</div>
+
+<button id="btn1">getJSON</button>
+
+<button id="btn2">getHTML</button>
+
+<script data-main="./main.js" src="/release/wangEditor.js"></script>
+<script type="text/javascript" >
+    var E = window.wangEditor;
+    var editor = new E('#editor');
+    editor.customConfig.uploadImgShowBase64 = true;
+    // editor.customConfig.uploadImgServer = '/upload';
+    editor.create();
+
+    document.getElementById('btn1').addEventListener('click', function () {
+
+        var json = editor.txt.getJSON(); // 获取 JSON 格式的内容
+        var jsonStr = JSON.stringify(json);
+        console.log("json>>", json);
+        console.log("jsonStr>>", jsonStr);
+
+    });
+
+
+    document.getElementById('btn2').addEventListener('click', function () {
+
+        console.log(editor.txt.html());
+    })
+</script>
+<!--<script data-main="./main.js" src="//cdn.bootcss.com/require.js/2.3.3/require.js"></script>-->
+</body>
+</html>

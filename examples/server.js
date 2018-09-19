@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var gm = require('gm').subClass({imageMagick: true});
@@ -8,6 +8,7 @@ var FroalaEditor = require('../lib/froalaEditor.js');
 
 app.use(express.static(__dirname + '/'));
 app.use('/bower_components',  express.static(path.join(__dirname, '../bower_components')));
+app.use('/release',  express.static(path.join(__dirname, '../release')));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function(req, res) {
